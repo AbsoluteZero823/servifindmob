@@ -1,0 +1,47 @@
+const express = require('express');
+const app = express();
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+require('dotenv/config');
+
+app.use(cors());
+app.options('*', cors());
+
+const api = process.env.API_URL
+
+
+const categoriesRouter = require('./routes/categories')
+const servicesRouter = require('./routes/services')
+
+//Middleware
+app.use(express.json());
+
+app.use(morgan('tiny'));
+
+app.use(`${api}/categories`, categoriesRouter)
+app.use(`${api}/services`, servicesRouter)
+
+
+
+
+
+
+//Database
+mongoose.connect(process.env.CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: "ServiFind",
+})
+    .then(() => {
+        console.log("Database is connected successfully");
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+
+//Server
+app.listen(3000, () => {
+    console.log("server is running http://localhost:3000");
+});
