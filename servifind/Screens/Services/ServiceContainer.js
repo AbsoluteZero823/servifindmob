@@ -12,19 +12,30 @@ import {
 import { Container, VStack, Heading, Icon, Item, Input, Text } from "native-base";
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
+import baseURL from '../../assets/common/baseUrl';
+import axios from 'axios';
+
 import ServiceList from './ServiceList'
 
 var { height } = Dimensions.get('window')
 var { width } = Dimensions.get('window')
 const data = require('../../assets/data/services.json');
 
-const ServiceContainer = () => {
+const ServiceContainer = (props) => {
 
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        setServices(data);
 
+
+
+        axios
+            .get(`${baseURL}services`)
+            .then((res) => {
+                // console.log(res.data);
+                setServices(res.data);
+            })
+            .catch(error => console.log(error));
         return () => {
             setServices([])
         }
@@ -44,6 +55,7 @@ const ServiceContainer = () => {
                         data={services}
                         numColumns={2}
                         renderItem={({ item }) => <ServiceList
+                            navigation={props.navigation}
                             key={item.title}
                             item={item} />}
                         keyExtractor={item => item.title}

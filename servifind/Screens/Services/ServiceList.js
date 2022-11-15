@@ -9,7 +9,13 @@ const ServiceList = (props) => {
 
     return (
 
-        <TouchableOpacity style={{ width: '50%' }}>
+        <TouchableOpacity style={{
+            width: '50%'
+        }}
+            onPress={() =>
+                props.navigation.navigate("Service Details", { item: item })
+            }
+        >
             <View style={{
                 width: width / 2,
                 backgroundColor: "transparent"
