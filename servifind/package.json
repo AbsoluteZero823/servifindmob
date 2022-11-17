@@ -22,7 +22,7 @@
     "expo": "^47.0.3",
     "expo-image-picker": "^14.0.1",
     "expo-status-bar": "^1.4.2",
-    "expo-updates": "^0.15.4",
+    "expo-updates": "~0.15.5",
     "jwt-decode": "^3.1.2",
     "mime": "^3.0.0",
     "native-base": "^3.4.21",
