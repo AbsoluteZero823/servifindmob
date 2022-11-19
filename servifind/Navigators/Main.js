@@ -20,9 +20,9 @@ const Main = () => {
                 headerShown: false,
                 // showLabel: true,
                 headerBackgroundContainerStyle: { backgroundColor: 'red' },
-                tabBarStyle: { backgroundColor: '#24262b' },
-                headerStyle: { backgroundColor: '#24262b' },
-                tabBarActiveTintColor: '#e91e63'
+                tabBarStyle: { backgroundColor: 'white' },
+                headerStyle: { backgroundColor: 'red' },
+                tabBarActiveTintColor: '#fdb6b1'
             }}
         >
 

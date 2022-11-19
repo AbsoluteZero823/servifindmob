@@ -1,4 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
+import React from "react";
+import { NativeBaseProvider } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native'
+import Toast from 'react-native-toast-message'
+
 // import { StyleSheet, Text, View } from 'react-native';
 
 //Redux
@@ -6,16 +11,13 @@ import { Provider } from 'react-redux';
 import store from './Redux/store';
 
 
-import { NativeBaseProvider } from 'native-base';
-import { NavigationContainer } from '@react-navigation/native'
-
 //Navigators
 import Main from './Navigators/Main'
 
 
 //Screens
 import Header from './Shared/Header';
-import ServiceContainer from './Screens/Services/ServiceContainer';
+
 export default function App() {
 
 
@@ -28,7 +30,7 @@ export default function App() {
         <Header />
 
         <Main />
-
+        <Toast innerRef={(innerRef) => Toast.setRef(innerRef)} />
       </NavigationContainer>
     </NativeBaseProvider>
     // {/* </Provider> */ }

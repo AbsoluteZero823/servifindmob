@@ -5,11 +5,11 @@ const Header = () => {
     var { width } = Dimensions.get('window')
     return (
 
-        <SafeAreaView style={{ width: width, paddingTop: 50, backgroundColor: '#24262b' }}>
+        <SafeAreaView style={{ width: width, paddingTop: 50, backgroundColor: '#fdb6b1' }}>
             <Image
-                source={require('../assets/Logo-white.png')}
+                source={require('../assets/Logo.png')}
                 resizeMode='contain'
-                style={{ height: 50, alignItems: 'center', left: -40, backgroundColor: '#24262b' }}
+                style={{ height: 50, alignItems: 'center', left: -40, backgroundColor: '#fdb6b1' }}
 
             />
 
