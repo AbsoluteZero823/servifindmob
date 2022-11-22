@@ -14,34 +14,37 @@ const UserProfile = (props) => {
     const context = useContext(AuthGlobal)
     const [userProfile, setUserProfile] = useState()
 
-    useEffect(() => {
-        if (
-            context.stateUser.isAuthenticated === false ||
-            context.stateUser.isAuthenticated === null
-        ) {
-            props.navigation.navigate("Login")
-        }
+    useFocusEffect(
 
-        AsyncStorage.getItem("jwt")
-            .then((res) => {
-                axios
-                    .get(`${baseURL}users/${context.stateUser.user.userId}`, {
-                        headers: { Authorization: `Bearer ${res}` },
-                    })
-                    .then((user) => setUserProfile(user.data))
-            })
+        useCallback(() => {
+            if (
+                context.stateUser.isAuthenticated === false ||
+                context.stateUser.isAuthenticated === null
+            ) {
+                props.navigation.navigate("Login")
+            }
 
-            .catch(error => {
-                console.log(error);
-            })
+            AsyncStorage.getItem("jwt")
+                .then((res) => {
+                    axios
+                        .get(`${baseURL}users/${context.stateUser.user.userId}`, {
+                            headers: { Authorization: `Bearer ${res}` },
+                        })
+                        .then((user) => setUserProfile(user.data))
+                })
 
-        return () => {
-            setUserProfile();
-        }
+                .catch(error => {
+                    console.log(error);
+                })
+
+            return () => {
+                setUserProfile();
+            }
 
 
 
-    }, [context.stateUser.isAuthenticated])
+        }, [context.stateUser.isAuthenticated]))
+
     return (
         <Container style={styles.container}>
             <ScrollView contentContainerStyle={styles.subContainer}>
@@ -58,10 +61,12 @@ const UserProfile = (props) => {
                 </View>
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
+                        props.navigation.navigate("Login"),
                         AsyncStorage.removeItem("jwt"),
 
-
+                        // console.log(context.stateUser.isAuthenticated),
                         logoutUser(context.dispatch)
+
                     ]} />
                 </View>
             </ScrollView>

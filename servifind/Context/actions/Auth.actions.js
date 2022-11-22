@@ -60,8 +60,14 @@ export const getUserProfile = (id) => {
 export const logoutUser = (dispatch) => {
     AsyncStorage.removeItem("jwt");
 
-
+    Toast.show({
+        topOffset: 60,
+        type: "success",
+        text1: "Logged Out Successfuly",
+        text2: ""
+    });
     dispatch(setCurrentUser({}))
+
 }
 
 export const setCurrentUser = (decoded, user) => {
