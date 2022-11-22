@@ -114,7 +114,7 @@ const Register = (props) => {
                     id={"gender"}
                     // ref={citiesDropdownRef}
                     data={countries}
-                    onSelect={(selectedItem) => setAge(selectedItem)}
+                    onSelect={(selectedItem) => setGender(selectedItem)}
                     defaultButtonText={'Select Gender'}
                     buttonTextAfterSelection={(selectedItem, index) => {
                         return selectedItem;

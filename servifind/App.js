@@ -10,6 +10,9 @@ import Toast from 'react-native-toast-message'
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 
+//Context API
+import Auth from "./Context/store/Auth";
+
 
 //Navigators
 import Main from './Navigators/Main'
@@ -23,17 +26,20 @@ export default function App() {
 
 
   return (
-    // <Provider store={store}>
-    <NativeBaseProvider>
-      <NavigationContainer>
+    <Auth>
+      {/* // <Provider store={store}> */}
+      <NativeBaseProvider>
+        <NavigationContainer>
 
-        <Header />
+          <Header />
 
-        <Main />
-        <Toast innerRef={(innerRef) => Toast.setRef(innerRef)} />
-      </NavigationContainer>
-    </NativeBaseProvider>
-    // {/* </Provider> */ }
+          <Main />
+          <Toast innerRef={(innerRef) => Toast.setRef(innerRef)} />
+        </NavigationContainer>
+      </NativeBaseProvider>
+      {/* // </Provider> */}
+    </Auth>
+
   );
 }
 
