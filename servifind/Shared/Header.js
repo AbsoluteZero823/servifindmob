@@ -9,7 +9,7 @@ const Header = () => {
             <Image
                 source={require('../assets/Logo.png')}
                 resizeMode='contain'
-                style={{ height: 50, alignItems: 'center', left: -40, backgroundColor: '#fdb6b1' }}
+                style={{ height: 50, alignItems: 'center', width: width, backgroundColor: '#fdb6b1' }}
 
             />
 
