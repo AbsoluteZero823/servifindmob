@@ -1105,13 +1105,13 @@
     mv "~2"
     safe-json-stringify "~1"
 
-"@expo/cli@0.4.8":
-  version "0.4.8"
-  resolved "https://registry.npmjs.org/@expo/cli/-/cli-0.4.8.tgz"
-  integrity sha512-Q0kXWS+L96bv5GBrotw0XtDpoN0zbB0DOFel7Vb6GKwAKcQPifCdakbLP4cz8t7ED89lLgLpYT54t6aD5eEVFA==
+"@expo/cli@0.4.10":
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/@expo/cli/-/cli-0.4.10.tgz#e965b97888c83cecdaddbb8dca3d5827643a0f36"
+  integrity sha512-c8NJOVa5b8g9CYj8ahdaN21cVE2wPwUaFrtTE0kLeRR5ASy8reWLFEOcstEtt6eufdcN/uGgBWQ0FLovgLZuzw==
   dependencies:
     "@babel/runtime" "^7.14.0"
-    "@expo/code-signing-certificates" "^0.0.2"
+    "@expo/code-signing-certificates" "0.0.5"
     "@expo/config" "~7.0.2"
     "@expo/config-plugins" "~5.0.3"
     "@expo/dev-server" "0.1.123"
@@ -1121,7 +1121,7 @@
     "@expo/osascript" "^2.0.31"
     "@expo/package-manager" "~0.0.53"
     "@expo/plist" "^0.0.18"
-    "@expo/prebuild-config" "5.0.6"
+    "@expo/prebuild-config" "5.0.7"
     "@expo/rudder-sdk-node" "1.1.1"
     "@expo/spawn-async" "1.5.0"
     "@expo/xcpretty" "^4.2.1"
@@ -1172,10 +1172,10 @@
     uuid "^3.4.0"
     wrap-ansi "^7.0.0"
 
-"@expo/code-signing-certificates@0.0.2", "@expo/code-signing-certificates@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/@expo/code-signing-certificates/-/code-signing-certificates-0.0.2.tgz"
-  integrity sha512-vnPHFjwOqxQ1VLztktY+fYCfwvLzjqpzKn09rchcQE7Sdf0wtW5fFtIZBEFOOY5wasp8tXSnp627zrAwazPHzg==
+"@expo/code-signing-certificates@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@expo/code-signing-certificates/-/code-signing-certificates-0.0.5.tgz#a693ff684fb20c4725dade4b88a6a9f96b02496c"
+  integrity sha512-BNhXkY1bblxKZpltzAx98G2Egj9g1Q+JRcvR7E99DOj862FTCX+ZPsAUtPTr7aHxwtrL7+fL3r0JSmM9kBm+Bw==
   dependencies:
     node-forge "^1.2.1"
     nullthrows "^1.1.1"
@@ -1337,10 +1337,10 @@
     base64-js "^1.2.3"
     xmlbuilder "^14.0.0"
 
-"@expo/prebuild-config@5.0.6":
-  version "5.0.6"
-  resolved "https://registry.npmjs.org/@expo/prebuild-config/-/prebuild-config-5.0.6.tgz"
-  integrity sha512-umHVsle+inPFPt+GMWRjZhkHwNbbaXpiEKbRnWKweInaXEZa9R9qt8gLyzniaREnw+/cEAIgL1znrKmNk4lUfQ==
+"@expo/prebuild-config@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@expo/prebuild-config/-/prebuild-config-5.0.7.tgz#4658b66126c4d32c7b6302571e458a71811b07aa"
+  integrity sha512-D+TBpJUHe4+oTGFPb4o0rrw/h1xxc6wF+abJnbDHUkhnaeiHkE2O3ByS7FdiZ2FT36t0OKqeSKG/xFwWT3m1Ew==
   dependencies:
     "@expo/config" "~7.0.2"
     "@expo/config-plugins" "~5.0.3"
@@ -4178,10 +4178,10 @@ expo-image-loader@~4.0.0:
   resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-4.0.0.tgz#a17e5f95a4c1671791168dd5dfc221bf2f88480c"
   integrity sha512-hVMhXagsO1cSng5s70IEjuJAuHy2hX/inu5MM3T0ecJMf7L/7detKf22molQBRymerbk6Tzu+20h11eU0n/3jQ==
 
-expo-image-picker@^14.0.1:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-14.0.1.tgz#51240690b042e9180350e92b2eec13a52e54841f"
-  integrity sha512-Qx7Vt00nEZvLwRUC6vknm0dbvYWwnEzqbg3rIRImGxfZ7ki3rWJ3HlWebGpxCyYRpJV6A7rUAgm/Mc0eY4eYzA==
+expo-image-picker@~14.0.2:
+  version "14.0.2"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-14.0.2.tgz#a611a43142be4c6f763ee39efd80e55f5a414ed7"
+  integrity sha512-dC0efykReusbjOtcvXYagABrVuwuOFwTfEx87VNjCZejig5aIPPj14UsViSV7xEQ+wkHvVnxyirox5xIbD196w==
   dependencies:
     expo-image-loader "~4.0.0"
     uuid "7.0.2"
@@ -4214,10 +4214,10 @@ expo-modules-autolinking@1.0.0:
     find-up "^5.0.0"
     fs-extra "^9.1.0"
 
-expo-modules-core@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/expo-modules-core/-/expo-modules-core-1.0.2.tgz"
-  integrity sha512-xVy/EoAKnqMDgRGaichL3jG0sHh+I0VL3vluPkUJAAiakscMgdXQIknIlFr0IX9ZWRbNP5zk6lTMjZjAZopizw==
+expo-modules-core@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-1.0.3.tgz#3d94da3524e7e7d81ae1e7e632a5e0e24db0f3f1"
+  integrity sha512-XqyA5c+zsK+cHDNVBVYu62HLBHyGMG0iWpXVP0bBQJWz0eyg5rcuEqLsnRTmoEz0YnH6QBf/cwRl+FfgnnH5Og==
   dependencies:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
@@ -4237,12 +4237,12 @@ expo-updates-interface@~0.8.0:
   resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.8.1.tgz#baeeeb01a77439682432be83ba78bc2e00547c4e"
   integrity sha512-1TPFCTQFHMZbltFGnxig3PbN/b6nO4T0RyL8XqdmYvQY0ElOCprZXQQ8vNDqeLYHgausG1lD4OyJwFzh2SNBSA==
 
-expo-updates@~0.15.5:
-  version "0.15.5"
-  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.15.5.tgz#65d85ddf253915767dbb88e2943e9068624ea41d"
-  integrity sha512-FTWT0u2ila2Oxsa3Ls1qix2YCK3F1I5VnG2O5pAAHqQ0k6FsZKO0/yvf/5O2X1K8Iqj4CiD/2MOLmpFaCsoQqg==
+expo-updates@~0.15.6:
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.15.6.tgz#99e3faa3e38312ebddb77afb697863fa1f1f6a03"
+  integrity sha512-g5BuCmWdyiLqFaVkVz+m7r6U7MHJrLKvqybs04H6ArMNpTEf6FhUwSzmnCyOkSSP35KFNkC/I0dYlgW3Vcf1sw==
   dependencies:
-    "@expo/code-signing-certificates" "0.0.2"
+    "@expo/code-signing-certificates" "0.0.5"
     "@expo/config" "~7.0.2"
     "@expo/config-plugins" "~5.0.3"
     "@expo/metro-config" "~0.5.0"
@@ -4255,13 +4255,13 @@ expo-updates@~0.15.5:
     resolve-from "^5.0.0"
     uuid "^3.4.0"
 
-expo@^47.0.3:
-  version "47.0.3"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-47.0.3.tgz#e4ce7530919aeee03ada93eb80700ecb3d729995"
-  integrity sha512-EpWV8ZljTIEQSVPdZxaWoOrJIAPqpBEF+RDyUoDMchXp4TB40CrAKwRuWo7baMsQLfwKgs7izJyaTp+9DsLqGw==
+expo@^47.0.8:
+  version "47.0.8"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-47.0.8.tgz#80390fd63f8305103445069c647011915f7c32dd"
+  integrity sha512-PGNCIvrnYwHH4TDFsVocq/xhWZ5DW8N3bLkZJPZZgX6VgjtVLNsbZ+0lm1inLCZHP+6xSpSKRccjGHO/QQoMBQ==
   dependencies:
     "@babel/runtime" "^7.14.0"
-    "@expo/cli" "0.4.8"
+    "@expo/cli" "0.4.10"
     "@expo/config" "7.0.3"
     "@expo/config-plugins" "5.0.4"
     "@expo/vector-icons" "^13.0.0"
@@ -4274,7 +4274,7 @@ expo@^47.0.3:
     expo-font "~11.0.1"
     expo-keep-awake "~11.0.1"
     expo-modules-autolinking "1.0.0"
-    expo-modules-core "1.0.2"
+    expo-modules-core "1.0.3"
     fbemitter "^3.0.0"
     getenv "^1.0.0"
     invariant "^2.2.4"

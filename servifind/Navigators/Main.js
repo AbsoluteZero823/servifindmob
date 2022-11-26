@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 //Stacks
 import HomeNavigator from './HomeNavigator';
 import UserNavigator from './UserNavigator';
-
+// const context = useContext(AuthGlobal);
 const Tab = createBottomTabNavigator();
 
 const Main = () => {
@@ -22,7 +22,8 @@ const Main = () => {
                 headerBackgroundContainerStyle: { backgroundColor: 'red' },
                 tabBarStyle: { backgroundColor: 'white' },
                 headerStyle: { backgroundColor: 'red' },
-                tabBarActiveTintColor: '#fdb6b1'
+                tabBarActiveTintColor: '#fdb6b1',
+                
             }}
         >
 
@@ -68,7 +69,9 @@ const Main = () => {
             <Tab.Screen
                 name="User"
                 component={UserNavigator}
+                
                 options={{
+                   
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="user"

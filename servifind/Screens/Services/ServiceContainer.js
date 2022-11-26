@@ -43,7 +43,7 @@ const ServiceContainer = (props) => {
 
     return (
         <Container style={{ top: 0, backgroundColor: '#fdb6b1', maxWidth: '100%' }}>
-            <VStack width={width - 10} space={5} bottom="5px" marginLeft="auto" marginRight="auto" backgroundColor='#fdb6b1'>
+            <VStack width={width - 10} space={5} bottom="5px" marginLeft="auto" marginRight="auto" backgroundColor='transparent'>
 
                 <Input placeholder="Search" variant="filled" width="95%" borderRadius="10" top='4' left="2" py="1" px="2" backgroundColor="white" InputLeftElement={<Icon ml="2" size="4" color="gray.400" as={<Ionicons name="ios-search" />} />} />
             </VStack>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         // paddingBottom: 10,
         flexWrap: "wrap",
         backgroundColor: "transparent",
-        top: 20
+        top: 25
     },
     listContainer: {
         // height: height,

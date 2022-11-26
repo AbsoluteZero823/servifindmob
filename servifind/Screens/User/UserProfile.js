@@ -1,5 +1,5 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { View, Text, ScrollView, Button, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Button, StyleSheet, Dimensions } from 'react-native';
 import { Container } from "native-base"
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -9,11 +9,11 @@ import baseURL from '../../assets/common/baseUrl';
 
 import AuthGlobal from '../../Context/store/AuthGlobal';
 import { logoutUser } from '../../Context/actions/Auth.actions';
-
+var { width } = Dimensions.get('window')
 const UserProfile = (props) => {
     const context = useContext(AuthGlobal)
     const [userProfile, setUserProfile] = useState()
-
+   
     useFocusEffect(
 
         useCallback(() => {
@@ -61,7 +61,7 @@ const UserProfile = (props) => {
                 </View>
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
-                        props.navigation.navigate("Login"),
+                        // props.navigation.navigate("Login"),
                         AsyncStorage.removeItem("jwt"),
 
                         // console.log(context.stateUser.isAuthenticated),
@@ -77,10 +77,13 @@ const UserProfile = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        // backgroundColor: "blue",
+        maxWidth: width
     },
     subContainer: {
-        alignItems: "center"
+        alignItems: "center",
+        // backgroundColor: "yellow"
     }
 })
 export default UserProfile;
