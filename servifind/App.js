@@ -31,7 +31,7 @@ export default function App() {
       <NativeBaseProvider>
         <NavigationContainer>
 
-          <Header />
+          {/* <Header /> */}
 
           <Main />
           <Toast innerRef={(innerRef) => Toast.setRef(innerRef)} />

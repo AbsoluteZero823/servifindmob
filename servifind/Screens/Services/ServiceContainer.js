@@ -8,7 +8,7 @@ import {
     ScrollView,
     Dimensions
 } from "react-native";
-
+import Header from '../../Shared/Header';
 import { Container, VStack, Heading, Icon, Item, Input, Text } from "native-base";
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
@@ -43,6 +43,7 @@ const ServiceContainer = (props) => {
 
     return (
         <Container style={{ top: 0, backgroundColor: '#fdb6b1', maxWidth: '100%' }}>
+            <Header />
             <VStack width={width - 10} space={5} bottom="5px" marginLeft="auto" marginRight="auto" backgroundColor='transparent'>
 
                 <Input placeholder="Search" variant="filled" width="95%" borderRadius="10" top='4' left="2" py="1" px="2" backgroundColor="white" InputLeftElement={<Icon ml="2" size="4" color="gray.400" as={<Ionicons name="ios-search" />} />} />

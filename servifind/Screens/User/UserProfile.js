@@ -1,5 +1,5 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { View, Text, ScrollView, Button, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, ScrollView, Button, StyleSheet, Dimensions, Image } from 'react-native';
 import { Container } from "native-base"
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -47,7 +47,18 @@ const UserProfile = (props) => {
 
     return (
         <Container style={styles.container}>
+            {/* <View >
+
+            </View> */}
             <ScrollView contentContainerStyle={styles.subContainer}>
+           
+           <View style={styles.imageCropper}>
+             <Image
+                style={styles.image}
+                resizeMode="contain"
+                source={{ uri: 'https://pbs.twimg.com/media/Ccd80gBUsAQERZj.jpg' }}
+            />
+            </View>
                 <Text style={{ fontSize: 30 }}>
                     {userProfile ? userProfile.name : ""}
                 </Text>
@@ -84,6 +95,21 @@ const styles = StyleSheet.create({
     subContainer: {
         alignItems: "center",
         // backgroundColor: "yellow"
+    },
+    imageCropper: {
+        width: 100,
+        height: 100,
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: 50,
+        backgroundColor: 'gainsboro',
+        marginVertical: 15
+    },
+    image: {
+        // display: 'inline',
+        // margin: 0 auto;
+        height: '100%',
+        width: 'auto'
     }
 })
 export default UserProfile;
