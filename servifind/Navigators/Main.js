@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 //Stacks
 import HomeNavigator from './HomeNavigator';
 import UserNavigator from './UserNavigator';
+import InquiriesNavigator from './InquiriesNavigator';
 // const context = useContext(AuthGlobal);
 const Tab = createBottomTabNavigator();
 
@@ -17,11 +18,11 @@ const Main = () => {
             initialRouteName="Feed"
             screenOptions={{
                 keyboardHidesTabBar: true,
-                headerShown: false,
+                headerShown: true,
                 // showLabel: true,
                 headerBackgroundContainerStyle: { backgroundColor: 'red' },
                 tabBarStyle: { backgroundColor: 'white' },
-                headerStyle: { backgroundColor: 'red' },
+                headerStyle: { backgroundColor: '#fdb6b1' },
                 tabBarActiveTintColor: '#fdb6b1',
                 
             }}
@@ -31,7 +32,7 @@ const Main = () => {
                 name='Home'
                 component={HomeNavigator}
                 options={{
-
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="home" color={color} size={size} />
 
@@ -39,12 +40,12 @@ const Main = () => {
                 }}
             />
             <Tab.Screen
-                name="Cart"
-                component={HomeNavigator}
+                name="Inquiries"
+                component={InquiriesNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Icon
-                            name="shopping-cart"
+                            name="clipboard"
 
                             color={color}
                             size={30}
@@ -56,6 +57,7 @@ const Main = () => {
                 name="Admin"
                 component={HomeNavigator}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="cog"

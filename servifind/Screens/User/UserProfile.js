@@ -69,6 +69,9 @@ const UserProfile = (props) => {
                     <Text style={{ margin: 10 }}>
                         Contact Number: {userProfile ? userProfile.contact : ""}
                     </Text>
+                    <Text style={{ margin: 10 }}>
+                        Role: {userProfile ? userProfile.role : ""}
+                    </Text>
                 </View>
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
