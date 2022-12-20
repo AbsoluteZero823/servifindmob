@@ -10,6 +10,11 @@ const serviceSchema = mongoose.Schema({
         ref: 'Category',
         required: true
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     experience: {
         type: String,
         required: true
@@ -34,12 +39,8 @@ const serviceSchema = mongoose.Schema({
             // required: true,
             //    default:'https://res.cloudinary.com/dawhmjhu1/image/upload/v1651110818/shelter/avatar_rk4v2w.jpg'
         }
-    },
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
     }
+ 
 
 })
 

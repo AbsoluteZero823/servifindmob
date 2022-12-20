@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 //Start Get All
 router.get(`/`, async (req, res) => {
-    const serviceList = await Service.find().populate('category');
+    const serviceList = await Service.find().populate(['category','user']);
 
     if (!serviceList) {
         res.status(500).json({ success: false })
@@ -18,7 +18,7 @@ router.get(`/`, async (req, res) => {
 
 //Start  Get Single
 router.get(`/:id`, async(req, res)=> {
-    const service = await Service.findById(req.params.id).populate('category');
+    const service = await Service.findById(req.params.id).populate('category','user');
 
     if(!service){
         res.status(500).json({message: 'The service with the given ID was not found.'})

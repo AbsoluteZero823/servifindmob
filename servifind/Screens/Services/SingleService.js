@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Image, View, StyleSheet, Text, ScrollView, Button } from 'react-native';
+import { Image, View, StyleSheet, Text, ScrollView, Button, Dimensions } from 'react-native';
 import { Left, Right, Container, H1 } from 'native-base';
 
+var { width } = Dimensions.get("window");
+var { height } = Dimensions.get("window");
 const SingleService = (props) => {
 
     const [item, setItem] = useState(props.route.params.item);
@@ -11,6 +13,7 @@ const SingleService = (props) => {
         <Container style={styles.container}>
             <ScrollView style={{ width: '100%', height: '100%', alignSelf: 'center', marginBottom: 80, padding: 5 }}>
                 <View>
+                    
                     <Image
                         source={{
                             uri: item.image ? item.image
@@ -20,6 +23,10 @@ const SingleService = (props) => {
                         resizeMode="contain"
                         style={styles.image}
                     />
+                    <View style={styles.infoContainer}>
+                        <Text>{item.category.name}</Text>
+                        <Text>{item.user.name}</Text>
+                    </View>
 
                 </View>
             </ScrollView>
@@ -32,8 +39,9 @@ const styles = StyleSheet.create({
 
     container: {
         position: 'relative',
-        height: '100%',
-        width: "100%",
+        height: height,
+        width: width,
+        backgroundColor:'yellow',
         left: 40
 
     },
@@ -47,6 +55,13 @@ const styles = StyleSheet.create({
         height: 250,
         margin: 'auto',
 
+    },
+    infoContainer:{
+        width: '100%',
+        backgroundColor: 'blue',
+        alignSelf: 'center',
+        alignItems: 'center',
+        height: 250
     }
 })
 

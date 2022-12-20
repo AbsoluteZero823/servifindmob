@@ -11,7 +11,7 @@ import {
 var { width } = Dimensions.get("window");
 
 const ServiceCard = (props) => {
-    const { title, image } = props;
+    const { title, image, user, category } = props;
 
     return (
         <View style={styles.container}>
@@ -28,8 +28,18 @@ const ServiceCard = (props) => {
             </Text>
             {/* <Text style={styles.price}>${price}</Text> */}
             <View style={{ marginBottom: 60 }}>
-                <Button title={'Inquire'} color={'green'} />
+               <Text>{category.name}</Text> 
+               
+                {/* <Button title={'Inquire'} color={'green'} /> */}
+                <View style={styles.imageCropper}>
+             <Image
+                style={styles.profile_image}
+                resizeMode="contain"
+                source={{ uri: user.image }}
+            />
+            </View><Text>{user.name}</Text> 
             </View>
+   
         </View>
     )
 }
@@ -64,6 +74,20 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 12,
         textAlign: 'center'
+    }, imageCropper: {
+        width: 25,
+        height: 25,
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: 50,
+        backgroundColor: 'gainsboro',
+        // marginVertical: 15
+    },
+    profile_image: {
+        // display: 'inline',
+        // margin: 0 auto;
+        height: 25,
+        width: 'auto'
     }
 })
 

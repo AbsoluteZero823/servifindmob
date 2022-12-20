@@ -23,7 +23,7 @@ function MyStack() {
                 name='Service Details'
                 component={SingleService}
                 options={{
-                    headerShown: false,
+                    headerShown: true,
 
                 }}
             />
