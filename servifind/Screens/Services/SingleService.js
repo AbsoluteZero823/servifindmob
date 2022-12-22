@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Image, View, StyleSheet, Text, ScrollView, Button, Dimensions } from 'react-native';
+import { Image, View, StyleSheet, Text, ScrollView, Button, Dimensions, Pressable } from 'react-native';
 import { Left, Right, Container, H1 } from 'native-base';
 
 var { width } = Dimensions.get("window");
@@ -13,7 +13,7 @@ const SingleService = (props) => {
         <Container style={styles.container}>
             <ScrollView style={{ width: '100%', height: '100%', alignSelf: 'center', marginBottom: 80, padding: 5 }}>
                 <View>
-                    
+
                     <Image
                         source={{
                             uri: item.image ? item.image
@@ -25,7 +25,17 @@ const SingleService = (props) => {
                     />
                     <View style={styles.infoContainer}>
                         <Text>{item.category.name}</Text>
+                        <View style={styles.imageCropper}>
+                            <Image
+                                style={styles.profile_image}
+                                resizeMode="contain"
+                                source={{ uri: item.user.image }}
+                            />
+                        </View>
+                        {/* <Text>{item.user.name}</Text> */}
                         <Text>{item.user.name}</Text>
+
+                        <Button title={'Inquire'} color={'green'} onPress={() => props.navigation.navigate("InquireForm")} />
                     </View>
 
                 </View>
@@ -41,7 +51,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         height: height,
         width: width,
-        backgroundColor:'yellow',
+        backgroundColor: 'yellow',
         left: 40
 
     },
@@ -56,12 +66,27 @@ const styles = StyleSheet.create({
         margin: 'auto',
 
     },
-    infoContainer:{
+    infoContainer: {
         width: '100%',
         backgroundColor: 'blue',
         alignSelf: 'center',
         alignItems: 'center',
         height: 250
+    },
+    imageCropper: {
+        width: 25,
+        height: 25,
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: 50,
+        backgroundColor: 'gainsboro',
+        // marginVertical: 15
+    },
+    profile_image: {
+        // display: 'inline',
+        // margin: 0 auto;
+        height: 25,
+        width: 'auto'
     }
 })
 

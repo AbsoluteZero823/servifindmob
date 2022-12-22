@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 
 import ServiceContainer from "../Screens/Services/ServiceContainer";
 import SingleService from "../Screens/Services/SingleService";
+import InquireForm from '../Screens/Others/InquireForm';
 // import { Stack } from 'native-base';
 
 const Stack = createStackNavigator()
@@ -12,7 +13,7 @@ function MyStack() {
 
         <Stack.Navigator>
             <Stack.Screen
-                name=' '
+                name='ServiceContainer'
                 component={ServiceContainer}
                 options={{
                     headerShown: false,
@@ -24,7 +25,21 @@ function MyStack() {
                 component={SingleService}
                 options={{
                     headerShown: true,
-
+                    headerBackgroundContainerStyle: { backgroundColor: 'red' },
+                    tabBarStyle: { backgroundColor: 'white' },
+                    headerStyle: { backgroundColor: '#fdb6b1' },
+                    tabBarActiveTintColor: '#fdb6b1',
+                }}
+            />
+            <Stack.Screen
+                name='InquireForm'
+                component={InquireForm}
+                options={{
+                    headerShown: true,
+                    headerBackgroundContainerStyle: { backgroundColor: 'red' },
+                    tabBarStyle: { backgroundColor: 'white' },
+                    headerStyle: { backgroundColor: '#fdb6b1' },
+                    tabBarActiveTintColor: '#fdb6b1',
                 }}
             />
 

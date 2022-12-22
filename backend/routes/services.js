@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 //Start Get All
 router.get(`/`, async (req, res) => {
-    const serviceList = await Service.find().populate(['category','user']);
+    const serviceList = await Service.find().populate(['category', 'user']);
 
     if (!serviceList) {
         res.status(500).json({ success: false })
@@ -17,11 +17,11 @@ router.get(`/`, async (req, res) => {
 //End Get All
 
 //Start  Get Single
-router.get(`/:id`, async(req, res)=> {
-    const service = await Service.findById(req.params.id).populate('category','user');
+router.get(`/:id`, async (req, res) => {
+    const service = await Service.findById(req.params.id).populate(['category', 'user']);
 
-    if(!service){
-        res.status(500).json({message: 'The service with the given ID was not found.'})
+    if (!service) {
+        res.status(500).json({ message: 'The service with the given ID was not found.' })
 
     }
     res.status(200).send(service);
@@ -31,7 +31,7 @@ router.get(`/:id`, async(req, res)=> {
 //Start Create
 router.post(`/`, async (req, res) => {
     const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid Category')
+    if (!category) return res.status(400).send('Invalid Category')
 
     let service = new Service({
         title: req.body.title,
@@ -56,13 +56,13 @@ router.post(`/`, async (req, res) => {
 //End Create
 
 //Start Update
-router.put(`/:id`, async (req, res)=>{
-    
-if(!mongoose.isValidObjectId(req.params.id)){
-    res.status(400).send('Invalid Service Id')
-}
+router.put(`/:id`, async (req, res) => {
+
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        res.status(400).send('Invalid Service Id')
+    }
     const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid Category')
+    if (!category) return res.status(400).send('Invalid Category')
 
     const service = await Service.findByIdAndUpdate(
         req.params.id,
@@ -78,13 +78,13 @@ if(!mongoose.isValidObjectId(req.params.id)){
             },
             user_id: req.body.user_id
         },
-        { new: true}
+        { new: true }
     )
     if (!service)
-    return res.status(404).send('the service cannot be updated')
+        return res.status(404).send('the service cannot be updated')
 
     res.send(service);
-    
+
 })
 //End Update
 
