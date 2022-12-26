@@ -35,7 +35,7 @@ const SingleService = (props) => {
                         {/* <Text>{item.user.name}</Text> */}
                         <Text>{item.user.name}</Text>
 
-                        <Button title={'Inquire'} color={'green'} onPress={() => props.navigation.navigate("InquireForm")} />
+                        <Button title={'Inquire'} color={'green'} onPress={() => props.navigation.navigate("Inquire Form")} />
                     </View>
 
                 </View>

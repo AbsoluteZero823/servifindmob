@@ -17,21 +17,25 @@ const InquireForm = (props) => {
 
     const countries = ["Male", "Female"]
 
-    const [email, setEmail] = useState("")
+    // const [email, setEmail] = useState("")
     const [name, setName] = useState("")
-    const [contact, setContact] = useState("")
-    const [age, setAge] = useState("")
-    const [gender, setGender] = useState("")
-    const [password, setPassword] = useState("")
+    // const [contact, setContact] = useState("")
+    // const [age, setAge] = useState("")
+    // const [gender, setGender] = useState("")
+    // const [password, setPassword] = useState("")
+    const [message, setMessage] = useState("")
     const [error, setError] = useState("")
 
     const InquireForm = () => {
-        if (email === '' ||
-            name === '' ||
+        if (name === '' ||
+            email === '' ||
             age === '' ||
             gender === '' ||
+            password === '' ||
             contact === '' ||
-            password === ''
+            status === '' ||
+            message === ''
+
         ) {
             setError("Please Fill in the Form Correctly")
         }
@@ -43,7 +47,8 @@ const InquireForm = (props) => {
             gender: gender,
             password: password,
             contact: contact,
-            status: 'activated'
+            status: 'activated',
+            message: message
 
         }
 
@@ -82,19 +87,35 @@ const InquireForm = (props) => {
         //     enableOnAndroid={true}
         // >
         <FormContainer title={"Inquire"} style={{ backgroundColor: 'white' }}>
-            <Input
+            <Text style={{ alignSelf: "flex-start", marginHorizontal: 45, fontSize: 15, fontWeight: 'bold' }}>Freelancer Information</Text>
+            <View style={{ borderColor: "black", opacity: 10, borderWidth: 2, borderRadius: 10, backgroundColor: 'transparent', width: "80%", marginBottom: 10 }}>
+                <Text >
+                    awhdaui
+                </Text>
+                <Text >
+                    awhdaui
+                </Text>
+                <Text >
+                    awhdaui
+                </Text>
+            </View>
+
+            <Text style={{ alignSelf: "flex-start", marginHorizontal: 45, fontSize: 15, fontWeight: 'bold' }}>Instruction Message</Text>
+            {/* <Input
                 placeholder={"Email"}
                 name={"email"}
                 id={"email"}
                 onChangeText={(text) => setEmail(text.toLowerCase())}
-            />
+            /> */}
+
             <Input
-                placeholder={"Name"}
-                name={"name"}
-                id={"name"}
-                onChangeText={(text) => setName(text)}
+                placeholder={"Message"}
+                name={"message"}
+                id={"message"}
+                onChangeText={(text) => setMessage(text)}
             />
-            <View style={{ width: width, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: '7%' }}>
+
+            {/* <View style={{ width: width, display: 'flex', flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: '7%' }}>
                 <TextInput
                     style={styles.Tinput}
                     placeholder={"Age"}
@@ -107,7 +128,7 @@ const InquireForm = (props) => {
 
 
 
-                {/* ///// */}
+
                 <SelectDropdown
                     placeholder={"Gender"}
                     name={"gender"}
@@ -131,48 +152,47 @@ const InquireForm = (props) => {
                     dropdownStyle={styles.dropdown2DropdownStyle}
                     rowStyle={styles.dropdown2RowStyle}
                     rowTextStyle={styles.dropdown2RowTxtStyle}
-                // dropdownOverlayColor={'white'}
-                // dropdownBackgroundColor={'black'}
+
                 />
-                {/* //// */}
-            </View>
-            <Input
+
+            </View> */}
+
+            {/* <Input
                 placeholder={"Contact Number"}
                 name={"contact"}
                 id={"contact"}
                 keyboardType={"numeric"}
                 onChangeText={(text) => setContact(text)}
-            />
-            <Input
+            /> */}
+
+            {/* <Input
                 placeholder={"Password"}
                 name={"password"}
                 id={"password"}
                 secureTextEntry={true}
                 onChangeText={(text) => setPassword(text)}
-            />
+            /> */}
+
+
             <View style={styles.buttonGroup}>
                 {error ? <Error message={error} /> : null}
             </View>
-            {/* <View style={{ paddingBottom: 10 }}>
-                    <Button title={"Register"}
-                        onPress={() => register()}
-                    />
-                </View> */}
+
             <View style={styles.buttonGroup}>
                 {error ? <Error message={error} /> : null}
                 <Pressable title={"Inquire"} style={[styles.button, { marginVertical: 10 }]} onPress={() => register()}>
                     <Text style={styles.middleText}>Inquire</Text>
                 </Pressable>
             </View>
-            <View>
+            {/* <View>
                 <Text style={{ color: 'black' }}>Already have an account?
                     <Pressable style={{ alignItems: 'center', justifyContent: 'center', }} title="Login" onPress={() => props.navigation.navigate("Login")} >
                         <Text style={{ color: '#fdb6b1' }} > Login</Text>
                     </Pressable>
                 </Text>
 
-            </View>
-        </FormContainer>
+            </View> */}
+        </FormContainer >
 
         // </KeyboardAwareScrollView>
     )

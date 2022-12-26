@@ -32,7 +32,7 @@ function MyStack() {
                 }}
             />
             <Stack.Screen
-                name='InquireForm'
+                name='Inquire Form'
                 component={InquireForm}
                 options={{
                     headerShown: true,
