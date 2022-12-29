@@ -17,6 +17,7 @@ const api = process.env.API_URL
 const categoriesRouter = require('./routes/categories')
 const servicesRouter = require('./routes/services')
 const usersRoutes = require('./routes/users');
+const inquiriesRouter = require('./routes/inquiries')
 
 //Middleware
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(errorHandler);
 app.use(`${api}/categories`, categoriesRouter)
 app.use(`${api}/services`, servicesRouter)
 app.use(`${api}/users`, usersRoutes);
+app.use(`${api}/inquiries`, inquiriesRouter)
 
 
 

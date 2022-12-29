@@ -1,15 +1,16 @@
-// import { createStore, combineReducer, applyMiddleware } from 'redux';
-// import { ThunkMiddleware } from 'redux-thunk';
-// import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 
-// const reducers = combineReducer({
+import inquiries from './Reducers/inquiries'
 
-//     //cartReducer
-// })
+const reducers = combineReducers({
+    inquiries: inquiries
+})
 
-// const store = createStore(
-//     reducers,
-//     composeWithDevTools(applyMiddleware(ThunkMiddleware))
-// )
+const store = createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+)
 
-// export default store;
+export default store;

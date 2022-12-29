@@ -73,6 +73,14 @@ const UserProfile = (props) => {
                         Role: {userProfile ? userProfile.role : ""}
                     </Text>
                 </View>
+                <Button title={"Transactions"} onPress={() => [
+                        // props.navigation.navigate("Login"),
+                        // AsyncStorage.removeItem("jwt"),
+alert("Show Transaction(not Done yet)")
+                        // console.log(context.stateUser.isAuthenticated),
+                        // logoutUser(context.dispatch)
+
+                    ]} />
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
                         // props.navigation.navigate("Login"),
@@ -82,6 +90,8 @@ const UserProfile = (props) => {
                         logoutUser(context.dispatch)
 
                     ]} />
+
+
                 </View>
             </ScrollView>
         </Container>

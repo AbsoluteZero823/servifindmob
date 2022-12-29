@@ -188,4 +188,24 @@ router.delete('/logout', (req, res) => {
         res.end()
     }
 })
+
+
+
+// router.post('/inquire', async (req, res) => {
+//     let user = new User({
+//         name: req.body.name,
+//         email: req.body.email,
+//         password: bcrypt.hashSync(req.body.password, 10),
+//         age: req.body.age,
+//         contact: req.body.contact,
+//         gender: req.body.gender,
+
+//     })
+//     user = await user.save();
+
+//     if (!user)
+//         return res.status(400).send('the user cannot be created!')
+
+//     res.send(user);
+// })
 module.exports = router;
