@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext,useState, useEffect } from 'react'
 import { Image, View, StyleSheet, Text, ScrollView, Button, Dimensions, Pressable } from 'react-native';
 import { Left, Right, Container, H1 } from 'native-base';
+import { useFocusEffect } from '@react-navigation/native';
 
+import AuthGlobal from '../../Context/store/AuthGlobal';
 var { width } = Dimensions.get("window");
 var { height } = Dimensions.get("window");
 const SingleService = (props) => {
-
+    const context = useContext(AuthGlobal)
     const [item, setItem] = useState(props.route.params.item);
     const [availability, setAvailability] = useState('');
 
@@ -35,7 +37,31 @@ const SingleService = (props) => {
                         {/* <Text>{item.user.name}</Text> */}
                         <Text>{item.user.name}</Text>
 
-                        <Button title={'Inquire'} color={'green'} onPress={() => props.navigation.navigate("Inquire Form")} />
+
+                        { context.stateUser.isAuthenticated === false ||
+            context.stateUser.isAuthenticated === null ? 
+            
+            <Button title={'Inquire'} color={'green'} onPress={() => 
+                
+                props.navigation.navigate("User")}
+                
+               
+                />
+
+            : 
+            <Button title={'Inquire'} color={'green'} onPress={() => 
+                // props.navigation.navigate("Inquire Form")}
+                
+                props.navigation.navigate({
+                    name: 'Inquire Form',
+                    params: { service_id: item._id },
+                    merge: true,
+                  })
+                }
+                />
+            }
+
+                        
                     </View>
 
                 </View>

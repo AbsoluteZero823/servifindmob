@@ -25,7 +25,7 @@ function MyStack() {
             ) : 
             
      
-   <Stack.Group>
+   <>
    
    
    <Stack.Screen
@@ -42,7 +42,7 @@ function MyStack() {
                 headerShown: false
             }}
         />
-   </Stack.Group>
+   </>
             
          
             
