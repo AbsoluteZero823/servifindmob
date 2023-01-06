@@ -12,7 +12,7 @@ import axios from 'axios'
 import baseURL from '../../assets/common/baseUrl';
 
 
-var { width } = Dimensions.get("window");
+var { width, height } = Dimensions.get("window");
 const Register = (props) => {
 
     const countries = ["Male", "Female"]
@@ -81,7 +81,7 @@ const Register = (props) => {
 
         //     enableOnAndroid={true}
         // >
-        <FormContainer title={"Register"} style={{ backgroundColor: 'white' }}>
+        <FormContainer title={""} style={{ backgroundColor: 'white' }}>
             <Input
                 placeholder={"Email"}
                 name={"email"}

@@ -22,7 +22,7 @@ const inquirySchema = mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'waiting'
+        default: 'pending'
     },
 
  

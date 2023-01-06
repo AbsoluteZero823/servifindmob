@@ -1,3 +1,5 @@
+
+
 const { Inquiry } = require('../models/inquiry');
 const express = require('express');
 const { Category } = require('../models/category');
@@ -6,27 +8,27 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 //Start Get All
-router.get(`/`, async (req, res) => {
-    const serviceList = await Service.find().populate(['category', 'user']);
+// router.get(`/`, async (req, res) => {
+//     const inquiryList = await Inquiry.find().populate(['customer', 'service_id']);
 
-    if (!serviceList) {
-        res.status(500).json({ success: false })
-    }
-    res.send(serviceList);
-})
+//     if (!inquiryList) {
+//         res.status(500).json({ success: false })
+//     }
+//     res.send(inquiryList);
+// })
 //End Get All
 
-//Start  Get Single
-router.get(`/:id`, async (req, res) => {
-    const service = await Service.findById(req.params.id).populate(['category', 'user']);
+//Start Get All
+router.get(`/`, async (req, res) => {
 
-    if (!service) {
-        res.status(500).json({ message: 'The service with the given ID was not found.' })
+    const inquiryList = await Inquiry.find().populate(['customer', 'service_id']);
 
+    if (!inquiryList) {
+        res.status(500).json({ success: false })
     }
-    res.status(200).send(service);
+    res.send(inquiryList);
 })
-//End Get Single
+//End Get All
 
 //Start Create
 router.post(`/inquireform`, async (req, res) => {
@@ -56,16 +58,36 @@ router.post(`/inquireform`, async (req, res) => {
 })
 //End Create
 
+
+/// NOT USED
+
+
+
+
+//Start  Get Single
+router.get(`/:id`, async (req, res) => {
+    const inquiry = await Inquiry.findById(req.params.id).populate(['category', 'user']);
+
+    if (!inquiry) {
+        res.status(500).json({ message: 'The inqiuiry with the given ID was not found.' })
+
+    }
+    res.status(200).send(inquiry);
+})
+//End Get Single
+
+
+
 //Start Update
 router.put(`/:id`, async (req, res) => {
 
     if (!mongoose.isValidObjectId(req.params.id)) {
-        res.status(400).send('Invalid Service Id')
+        res.status(400).send('Invalid inquiry Id')
     }
     const category = await Category.findById(req.body.category);
     if (!category) return res.status(400).send('Invalid Category')
 
-    const service = await Service.findByIdAndUpdate(
+    const inquiry = await Inquiry.findByIdAndUpdate(
         req.params.id,
         {
             title: req.body.title,
@@ -81,22 +103,22 @@ router.put(`/:id`, async (req, res) => {
         },
         { new: true }
     )
-    if (!service)
-        return res.status(404).send('the service cannot be updated')
+    if (!inquiry)
+        return res.status(404).send('the inquiry cannot be updated')
 
-    res.send(service);
+    res.send(inquiry);
 
 })
 //End Update
 
 //Start Delete
 router.delete(`/:id`, (req, res) => {
-    Service.findByIdAndRemove(req.params.id).then(service => {
-        if (service) {
-            return res.status(200).json({ success: true, message: 'the service is deleted' })
+    Service.findByIdAndRemove(req.params.id).then(inquiry => {
+        if (inquiry) {
+            return res.status(200).json({ success: true, message: 'the inquiry is deleted' })
 
         } else {
-            return res.status(404).json({ success: false, message: "service not found!" })
+            return res.status(404).json({ success: false, message: "inquiry not found!" })
         }
     }).catch(err => {
         return res.status(400).json({ success: false, error: err })

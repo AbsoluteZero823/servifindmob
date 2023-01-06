@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from "@react-navigation/stack"
 
-import Inquiries from "../Screens/Inquiries"
+import Inquiries from '../Screens/User/Inquiries';
 import ServiceContainer from "../Screens/Services/ServiceContainer";
 // import SingleService from "../Screens/Services/SingleService";
 // import { Stack } from 'native-base';

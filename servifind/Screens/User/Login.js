@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, Dimensions } from 'react-native';
 import FormContainer from '../../Shared/Form/FormContainer'
 import Input from '../../Shared/Form/Input'
 import Error from '../../Shared/Error'
@@ -7,7 +7,7 @@ import Error from '../../Shared/Error'
 //Context API
 import AuthGlobal from '../../Context/store/AuthGlobal';
 import { loginUser } from "../../Context/actions/Auth.actions"
-
+var { width, height } = Dimensions.get("window");
 
 const Login = (props) => {
     const context = useContext(AuthGlobal)
@@ -34,7 +34,15 @@ const Login = (props) => {
         }
     };
     return (
-        <FormContainer title={'Login'}>
+        <View>
+             
+        <FormContainer title={''}>
+        <Image
+                source={require('../../assets/Logo.png')}
+                resizeMode='contain'
+                style={{ height: 120, alignItems: 'center', width: width, backgroundColor: 'white', bottom: 50 }}
+
+            />
             <Input
                 placeholder={"Enter Email"}
                 name={"email"}
@@ -67,6 +75,7 @@ const Login = (props) => {
 
             </View>
         </FormContainer >
+        </View>
     )
 }
 

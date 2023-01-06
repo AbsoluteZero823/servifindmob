@@ -1,5 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import {Dimensions} from 'react-native';
 // import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -9,6 +10,7 @@ import HomeNavigator from './HomeNavigator';
 import UserNavigator from './UserNavigator';
 import InquiriesNavigator from './InquiriesNavigator';
 // const context = useContext(AuthGlobal);
+var { width, height } = Dimensions.get("window");
 const Tab = createBottomTabNavigator();
 
 const Main = () => {
@@ -21,7 +23,7 @@ const Main = () => {
                 headerShown: true,
                 // showLabel: true,
                 headerBackgroundContainerStyle: { backgroundColor: 'red' },
-                tabBarStyle: { backgroundColor: 'white' },
+                tabBarStyle: { backgroundColor: 'white', height: height*0.07 },
                 headerStyle: { backgroundColor: '#fdb6b1' },
                 tabBarActiveTintColor: '#fdb6b1',
                 
@@ -54,13 +56,13 @@ const Main = () => {
                 }}
             />
             <Tab.Screen
-                name="Admin"
+                name="Message"
                 component={HomeNavigator}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
-                            name="cog"
+                            name="envelope"
 
                             color={color}
                             size={30}
@@ -73,7 +75,7 @@ const Main = () => {
                 component={UserNavigator}
                 
                 options={{
-                   
+                    headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="user"

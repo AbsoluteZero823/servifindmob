@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         height: height,
         width: width,
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         left: 40
 
     },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     },
     infoContainer: {
         width: '100%',
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         alignSelf: 'center',
         alignItems: 'center',
         height: 250
