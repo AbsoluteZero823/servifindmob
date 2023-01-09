@@ -28,7 +28,7 @@ const ListHeader = () => {
                 <Text style={{ fontWeight: '600'}}>Instruction</Text>
             </View>
             <View style={styles.headerItem}>
-                <Text style={{ fontWeight: '600'}}>Customer Name</Text>
+                <Text style={{ fontWeight: '600'}}>Freelancer Name</Text>
             </View>
             <View style={styles.headerItem}>
                 <Text style={{ fontWeight: '600'}}>Status</Text>
@@ -161,7 +161,7 @@ const Inquiries = (props) => {
                     {...item}
                     navigation={props.navigation}
                     index={index}
-                    key={item._id}
+                    key={index}
                     // delete={deleteProduct}
                 />
             )}

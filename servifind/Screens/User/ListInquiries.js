@@ -15,7 +15,7 @@ import EasyButton from "../../Shared/StyledComponents/EasyButton";
 var { width } = Dimensions.get("window");
 
 const ListInquiries = (props) => {
-
+// console.log(props)
 
 
     return(
@@ -36,7 +36,8 @@ const ListInquiries = (props) => {
             style={styles.image}
             />
             <Text style={styles.item} numberOfLines={1} ellipsizeMode="tail">{props.instruction}</Text>
-            <Text style={styles.item} numberOfLines={1} >{props.customer.name}</Text>
+            <Text style={styles.item} numberOfLines={1} >{props.service_id.user.name}</Text>
+            {/* <Text style={styles.item} numberOfLines={1} >{props.service_id.title}</Text> */}
             <Text style={styles.item} numberOfLines={1}>{props.status}</Text>
         </TouchableOpacity>
       </View>

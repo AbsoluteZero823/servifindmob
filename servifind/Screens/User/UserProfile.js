@@ -1,5 +1,5 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { View, Text, ScrollView, Button, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Text, ScrollView, Button, StyleSheet, Dimensions, Image, Switch } from 'react-native';
 import { Container } from "native-base"
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,6 +14,11 @@ const UserProfile = (props) => {
     const context = useContext(AuthGlobal)
     const [userProfile, setUserProfile] = useState()
    
+    const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const [isOnline, setIsOnline] = useState(false);
+  const toggleOnlineSwitch = () => setIsOnline(previousState => !previousState);
     useFocusEffect(
 
         useCallback(() => {
@@ -76,11 +81,31 @@ const UserProfile = (props) => {
                 <Button title={"Transactions"} onPress={() => [
                         // props.navigation.navigate("Login"),
                         // AsyncStorage.removeItem("jwt"),
-alert("Show Transaction(not Done yet)")
+                        alert("Show Transaction(not Done yet)")
                         // console.log(context.stateUser.isAuthenticated),
                         // logoutUser(context.dispatch)
 
                     ]} />
+                    
+                    <View style={styles.switches}>
+                    <Text>Freelancer Mode</Text>
+                       <Switch
+        trackColor={{ false: "#767577", true: "#fad7d4" }}
+        thumbColor={isEnabled ? "#fcc6c2" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      /></View>
+
+<View style={styles.switches}>
+                    <Text>Online Status</Text>
+                       <Switch
+        trackColor={{ false: "#767577", true: "#fad7d4" }}
+        thumbColor={isOnline ? "#fcc6c2" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleOnlineSwitch}
+        value={isOnline}
+      /></View>
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
                         // props.navigation.navigate("Login"),
@@ -123,6 +148,11 @@ const styles = StyleSheet.create({
         // margin: 0 auto;
         height: '100%',
         width: 'auto'
+    },
+    switches: {
+        display:"flex",
+        flexDirection: "row",
+        alignItems: "center"
     }
 })
 export default UserProfile;

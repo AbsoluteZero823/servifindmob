@@ -21,7 +21,8 @@ const mongoose = require('mongoose');
 //Start Get All
 router.get(`/`, async (req, res) => {
 
-    const inquiryList = await Inquiry.find().populate(['customer', 'service_id']);
+    const inquiryList = await Inquiry.find().populate(['customer', {path:'service_id',
+     populate : {path: 'user'}}]);
 
     if (!inquiryList) {
         res.status(500).json({ success: false })

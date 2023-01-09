@@ -21,10 +21,11 @@ var { height } = Dimensions.get('window')
 var { width } = Dimensions.get('window')
 const data = require('../../assets/data/services.json');
 
+
 const ServiceContainer = (props) => {
 
     const [services, setServices] = useState([]);
-
+const [serviceFiltered, setServiceFiltered] = useState([]);
     useEffect(() => {
 
 
