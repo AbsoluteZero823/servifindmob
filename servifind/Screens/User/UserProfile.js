@@ -13,12 +13,12 @@ var { width } = Dimensions.get('window')
 const UserProfile = (props) => {
     const context = useContext(AuthGlobal)
     const [userProfile, setUserProfile] = useState()
-   
-    const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-  const [isOnline, setIsOnline] = useState(false);
-  const toggleOnlineSwitch = () => setIsOnline(previousState => !previousState);
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+    const [isOnline, setIsOnline] = useState(false);
+    const toggleOnlineSwitch = () => setIsOnline(previousState => !previousState);
     useFocusEffect(
 
         useCallback(() => {
@@ -36,6 +36,7 @@ const UserProfile = (props) => {
                             headers: { Authorization: `Bearer ${res}` },
                         })
                         .then((user) => setUserProfile(user.data))
+                    // console.log(userProfile.avatar.url)
                 })
 
                 .catch(error => {
@@ -44,6 +45,7 @@ const UserProfile = (props) => {
 
             return () => {
                 setUserProfile();
+
             }
 
 
@@ -56,14 +58,14 @@ const UserProfile = (props) => {
 
             </View> */}
             <ScrollView contentContainerStyle={styles.subContainer}>
-           
-           <View style={styles.imageCropper}>
-             <Image
-                style={styles.image}
-                resizeMode="contain"
-                source={{ uri: 'https://pbs.twimg.com/media/Ccd80gBUsAQERZj.jpg' }}
-            />
-            </View>
+
+                <View style={styles.imageCropper}>
+                    <Image
+                        style={styles.image}
+                        resizeMode="contain"
+                        source={{ uri: userProfile ? userProfile.avatar.url : 'https://res.cloudinary.com/dawhmjhu1/image/upload/v1674014501/servifind/avatar/default_profile.jpg' }}
+                    />
+                </View>
                 <Text style={{ fontSize: 30 }}>
                     {userProfile ? userProfile.name : ""}
                 </Text>
@@ -79,33 +81,39 @@ const UserProfile = (props) => {
                     </Text>
                 </View>
                 <Button title={"Transactions"} onPress={() => [
-                        // props.navigation.navigate("Login"),
-                        // AsyncStorage.removeItem("jwt"),
-                        alert("Show Transaction(not Done yet)")
-                        // console.log(context.stateUser.isAuthenticated),
-                        // logoutUser(context.dispatch)
+                    // props.navigation.navigate("Login"),
+                    // AsyncStorage.removeItem("jwt"),
+                    alert("Show Transaction(not Done yet)")
+                    // console.log(context.stateUser.isAuthenticated),
+                    // logoutUser(context.dispatch)
 
-                    ]} />
-                    
-                    <View style={styles.switches}>
+                ]} />
+
+
+
+
+                <View style={styles.switches}>
                     <Text>Freelancer Mode</Text>
-                       <Switch
-        trackColor={{ false: "#767577", true: "#fad7d4" }}
-        thumbColor={isEnabled ? "#fcc6c2" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      /></View>
+                    <Switch
+                        trackColor={{ false: "#767577", true: "#fad7d4" }}
+                        thumbColor={isEnabled ? "#fcc6c2" : "#f4f3f4"}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch}
+                        value={isEnabled}
+                    /></View>
 
-<View style={styles.switches}>
+                <View style={styles.switches}>
                     <Text>Online Status</Text>
-                       <Switch
-        trackColor={{ false: "#767577", true: "#fad7d4" }}
-        thumbColor={isOnline ? "#fcc6c2" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleOnlineSwitch}
-        value={isOnline}
-      /></View>
+                    <Switch
+                        trackColor={{ false: "#767577", true: "#fad7d4" }}
+                        thumbColor={isOnline ? "#fcc6c2" : "#f4f3f4"}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleOnlineSwitch}
+                        value={isOnline}
+                    />
+                </View>
+
+
                 <View style={{ marginTop: 80 }}>
                     <Button title={"Sign Out"} onPress={() => [
                         // props.navigation.navigate("Login"),
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
         width: 'auto'
     },
     switches: {
-        display:"flex",
+        display: "flex",
         flexDirection: "row",
         alignItems: "center"
     }

@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema({
     avatar: {
         public_id: {
             type: String,
-            // required: true,
-            //    default:'shelter/avatar_rk4v2w'
+            required: true,
+            default: 'shelter/avatar_rk4v2w'
         },
         url: {
             type: String,
-            // required: true,
-            //    default:'https://res.cloudinary.com/dawhmjhu1/image/upload/v1651110818/shelter/avatar_rk4v2w.jpg'
+            required: true,
+            default: 'https://res.cloudinary.com/dawhmjhu1/image/upload/v1651110818/shelter/avatar_rk4v2w.jpg'
         }
     },
 
