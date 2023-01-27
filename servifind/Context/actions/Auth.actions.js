@@ -54,7 +54,7 @@ export const getUserProfile = (id) => {
     })
         .then((res) => res.json())
         .then((data) => console.log(data));
-    console.log("awit");
+    // console.log("awit");
 }
 
 export const logoutUser = (dispatch) => {

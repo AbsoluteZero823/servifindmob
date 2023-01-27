@@ -1,40 +1,45 @@
 import React from "react";
 import { View, StyleSheet } from 'react-native'
-import { Content, Left, Body, ListItem, Thumbnail, Text } from 'native-base'
+import { Content,Container, Left, Body, ListItem, Thumbnail, Text } from 'native-base'
 
 const SearchedServices = (props) => {
-    const {servicesFiltered} = props;
+    const servicesFiltered = props;
+    // console.log(servicesFiltered)
+    // console.log(Object.keys(servicesFiltered).length)
+    // Object.values
     return (
-        <Content>
+        <Container>
+        {/* <Content> */}
             {servicesFiltered.length > 0 ? (
-                productsFiltered.map((item) => (
-                    <ListItem 
-                    //onPress={navigation}
-                    key={item._id}
-                    avatar
-                    >
-                        <Left>
-                            <Thumbnail
-                                source={{ uri: item.image ? 
-                                    item.image: 'https://cdn.pixabay.com/photo.2012/04/01/17/29/box-23649_960_720.png'}}
-                            />
-                        </Left>
-                        <Body>
-                            <Text>{item.name}</Text>
-                            <Text note>{item.description}</Text>
-                        </Body>
-                    </ListItem>
-                    
-                ))
+             servicesFiltered.map((item) => (
+                <ListItem 
+                //onPress={navigation}
+                key={item._id.$oid}
+                // avatar
+                >
+                    <Left>
+                        <Thumbnail
+                            source={{ uri: item.image ? 
+                                item.image: 'https://cdn.pixabay.com/photo.2012/04/01/17/29/box-23649_960_720.png'}}
+                        />
+                    </Left>
+                    <Body>
+                        <Text>{item.title}</Text>
+                        {/* <Text note>{item.description}</Text> */}
+                    </Body>
+                </ListItem>
+                
+            ))
             ) : (
-
-                <View style={StyleSheet.center}>
+   <View style={StyleSheet.center}>
                     <Text style={{alignSelf: "center"}}> 
-                    No Services match the selected criteria
+                    {/* No Services match the selected criteria */}
                     </Text>
                 </View>
+               
             )}
-        </Content>
+        {/* </Content> */}
+        </Container>
     )
 };
 

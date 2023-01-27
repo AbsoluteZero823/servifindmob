@@ -5,7 +5,7 @@ import Login from '../Screens/User/Login'
 import Register from '../Screens/User/Register'
 import UserProfile from '../Screens/User/UserProfile'
 import AuthGlobal from "../Context/store/AuthGlobal";
-
+import Inquiries from '../Screens/User/Inquiries';
 
 var { width, height } = Dimensions.get("window");
 const Stack = createStackNavigator();
@@ -24,7 +24,11 @@ function MyStack() {
                  headerShown: true
              }}
             />
-     
+            
+        
+
+
+
             ) : 
             
      
@@ -53,7 +57,15 @@ function MyStack() {
             
             }
 
-           
+<Stack.Screen
+         name='inquiries'
+         component={Inquiries}
+         options={{
+            headerStyle: { backgroundColor: '#fdb6b1' },
+             headerShown: true,
+
+         }}
+     />
         </Stack.Navigator>
 
     )

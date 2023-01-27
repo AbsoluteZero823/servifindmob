@@ -12,14 +12,7 @@ function MyStack() {
     return (
 
         <Stack.Navigator>
-            <Stack.Screen
-                name=' '
-                component={Inquiries}
-                options={{
-                    headerShown: false,
-
-                }}
-            />
+          
             {/* <Stack.Screen
                 name='Service Details'
                 component={SingleService}

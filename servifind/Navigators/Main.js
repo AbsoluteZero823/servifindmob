@@ -22,6 +22,7 @@ const Main = () => {
                 keyboardHidesTabBar: true,
                 headerShown: true,
                 // showLabel: true,
+        
                 headerBackgroundContainerStyle: { backgroundColor: 'red' },
                 tabBarStyle: { backgroundColor: 'white', height: height*0.07 },
                 headerStyle: { backgroundColor: '#fdb6b1' },
@@ -32,11 +33,13 @@ const Main = () => {
 
             <Tab.Screen
                 name='Home'
+                
                 component={HomeNavigator}
                 options={{
+                    tabBarShowLabel: false,
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon name="home" color={color} size={size} />
+                    tabBarIcon: ({ color }) => (
+                        <Icon name="home" color={color} size={30} />
 
                     )
                 }}
@@ -45,6 +48,7 @@ const Main = () => {
                 name="Inquiries"
                 component={InquiriesNavigator}
                 options={{
+                    tabBarShowLabel: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="clipboard"
@@ -59,6 +63,7 @@ const Main = () => {
                 name="Message"
                 component={HomeNavigator}
                 options={{
+                    tabBarShowLabel: false,
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
@@ -75,8 +80,9 @@ const Main = () => {
                 component={UserNavigator}
                 
                 options={{
+                    tabBarShowLabel: false,
                     headerShown: false,
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: ({ color}) => (
                         <Icon
                             name="user"
 
