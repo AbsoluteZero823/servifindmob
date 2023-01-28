@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from "react-native-vector-icons/FontAwesome"
 import EasyButton from '../../Shared/StyledComponents/EasyButton';
 
-import ListInquiries from './ListInquiries';
+import ListClientInquiries from './ListClientInquiries';
 
 import AuthGlobal from '../../Context/store/AuthGlobal';
 import baseURL from '../../assets/common/baseUrl'
@@ -28,7 +28,7 @@ const ListHeader = () => {
                 <Text style={{ fontWeight: '600'}}>Instruction</Text>
             </View>
             <View style={styles.headerItem}>
-                <Text style={{ fontWeight: '600'}}>Freelancer Name</Text>
+                <Text style={{ fontWeight: '600'}}>Customer Name</Text>
             </View>
             <View style={styles.headerItem}>
                 <Text style={{ fontWeight: '600'}}>Status</Text>
@@ -39,10 +39,10 @@ const ListHeader = () => {
         </View>
     )
 }
-const Inquiries = (props) => {
+const ClientInquiries = (props) => {
     const context = useContext(AuthGlobal)
-    const [inquiriesList, setInquiriesList] = useState()
-    const [inquiriesFilter, setInquiriesFilter] = useState()
+    const [clientInquiriesList, setClientInquiriesList] = useState()
+    const [clientInquiriesFilter, setClientInquiriesFilter] = useState()
     const [loading, setLoading]=useState()
     const [token, setToken] = useState();
 
@@ -64,18 +64,19 @@ const Inquiries = (props) => {
                         // console.log(res.data[0].customer._id)
                             const data = res.data
                        const userInquiry = data.filter(
-                         (data) => data.customer._id === context.stateUser.user.userId
+                         (data) => data.service_id.user._id === context.stateUser.user.userId
+                         
                        )
-                        setInquiriesList(userInquiry);
-                        setInquiriesFilter(userInquiry);
+                        setClientInquiriesList(userInquiry);
+                        setClientInquiriesFilter(userInquiry);
                         // setInquiriesList(res.data);
                         // setInquiriesFilter(res.data);
                         setLoading(false);
                     })
 
                 return () => {
-                    setInquiriesList();
-                    setInquiriesFilter();
+                    setClientInquiriesList();
+                    setClientInquiriesFilter();
                     setLoading(true);
                 }
             },
@@ -94,21 +95,21 @@ const Inquiries = (props) => {
     //     )
     // }
 
-    const deleteInquiry = (id) => {
-        axios
-            .delete(`${baseURL}inquiries/${id}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((res) => {
-                const inquiries = inquiriesFilter.filter((item) => item.id !== id)
-                setInquiriesFilter(inquiries)
-            })
-            .catch((error) => console.log(error));
-    }
+    // const deleteProduct = (id) => {
+    //     axios
+    //         .delete(`${baseURL}products/${id}`, {
+    //             headers: { Authorization: `Bearer ${token}` },
+    //         })
+    //         .then((res) => {
+    //             const products = productFilter.filter((item) => item.id !== id)
+    //             setProductFilter(products)
+    //         })
+    //         .catch((error) => console.log(error));
+    // }
 
   return (
     <View style={styles.container}>
-        <View style={styles.buttonContainer}>
+        {/* <View style={styles.buttonContainer}>
             <EasyButton
                 secondary
                 medium
@@ -133,7 +134,7 @@ const Inquiries = (props) => {
                 <Icon name="plus" size={18} color="white" />
                 <Text style={styles.buttonText}>Categories</Text>
             </EasyButton>
-        </View>
+        </View> */}
       {/* <View>
           <Header searchBar rounded>
               <Item style={{ padding: 5 }}>
@@ -152,21 +153,21 @@ const Inquiries = (props) => {
           </View>
       ) : (
           <FlatList 
-            data={inquiriesFilter}
+            data={clientInquiriesFilter}
             ListHeaderComponent={ListHeader}
             renderItem={({ item, index }) => (
                 
                 // <Text>{item.instruction}</Text>
-                <ListInquiries 
+                <ListClientInquiries 
                     {...item}
                     navigation={props.navigation}
                     index={index}
                     key={index}
-                    delete={deleteInquiry}
+                    // delete={deleteProduct}
                 />
             )}
            
-            keyExtractor={(item) => item._id}
+            keyExtractor={(item) => item.id}
           />
       )}
     </View>
@@ -245,4 +246,4 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 })
-export default Inquiries;
+export default ClientInquiries;

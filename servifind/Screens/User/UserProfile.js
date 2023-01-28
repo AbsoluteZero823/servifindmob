@@ -149,12 +149,12 @@ const UserProfile = (props) => {
         <Action title={'Edit Profile'} icon={'edit'} />
     </TouchableOpacity>
      */}
-     <View>
+     {userProfile && userProfile.role != 'customer' && ( <View>
      <Text style={styles.bold}>Freelancer</Text> 
      
-     {userProfile && userProfile.role != 'customer' && (
+    
                                 
-                                <View style={[styles.switches, { marginTop: 5 }]}>
+                                {/* <View style={[styles.switches, { marginTop: 5 }]}>
                                     <Text style={styles.actionTitle} >Freelancer Mode</Text>
                                     <Switch
                                         trackColor={{ false: "#767577", true: "#fad7d4" }}
@@ -163,9 +163,9 @@ const UserProfile = (props) => {
                                         onValueChange={toggleSwitch}
                                         value={isEnabled}
                                     />
-                                </View>
-                                            )}
- {userProfile && userProfile.role != 'customer' && (
+                                </View> */}
+                                           
+ {/* {userProfile && userProfile.role != 'customer' && ( */}
                 <View style={[styles.switches, { marginTop: -5 }]}>
                     <Text style={styles.actionTitle}>Online Status</Text>
                     <Switch
@@ -176,7 +176,7 @@ const UserProfile = (props) => {
                         value={isOnline}
                     />
                 </View>
-  )}
+  {/* )} */}
 
      <TouchableOpacity  style={{paddingTop:10}}  onPress=
         {() => [
@@ -185,10 +185,7 @@ const UserProfile = (props) => {
         <Action title={'My Services'} icon={'edit'} />   
     </TouchableOpacity>
         
-    <TouchableOpacity  style={{paddingTop:10}}  onPress=
-        {() => [
-            alert("Client`s inquiries(not Done yet)")     
-        ]}>
+    <TouchableOpacity  style={{paddingTop:10}}  onPress={() => props.navigation.navigate("Client Inquiries")}>
         <Action title={'Client`s Inquiries'} icon={'edit'} />   
     </TouchableOpacity>
 
@@ -196,7 +193,7 @@ const UserProfile = (props) => {
 
 
      </View>
-    
+     )}
     <View>
     <Text style={styles.bold}>Buyer</Text> 
 

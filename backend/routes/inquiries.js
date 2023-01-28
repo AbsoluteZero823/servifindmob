@@ -27,6 +27,7 @@ router.get(`/`, async (req, res) => {
     if (!inquiryList) {
         res.status(500).json({ success: false })
     }
+    console.log(inquiryList);
     res.send(inquiryList);
 })
 //End Get All
@@ -114,7 +115,7 @@ router.put(`/:id`, async (req, res) => {
 
 //Start Delete
 router.delete(`/:id`, (req, res) => {
-    Service.findByIdAndRemove(req.params.id).then(inquiry => {
+    Inquiry.findByIdAndRemove(req.params.id).then(inquiry => {
         if (inquiry) {
             return res.status(200).json({ success: true, message: 'the inquiry is deleted' })
 
