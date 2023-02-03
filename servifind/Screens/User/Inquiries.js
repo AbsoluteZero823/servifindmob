@@ -100,7 +100,7 @@ const Inquiries = (props) => {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((res) => {
-                const inquiries = inquiriesFilter.filter((item) => item.id !== id)
+                const inquiries = inquiriesFilter.filter((item) => item._id !== id)
                 setInquiriesFilter(inquiries)
             })
             .catch((error) => console.log(error));
@@ -108,7 +108,7 @@ const Inquiries = (props) => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.buttonContainer}>
+        {/* <View style={styles.buttonContainer}>
             <EasyButton
                 secondary
                 medium
@@ -133,7 +133,7 @@ const Inquiries = (props) => {
                 <Icon name="plus" size={18} color="white" />
                 <Text style={styles.buttonText}>Categories</Text>
             </EasyButton>
-        </View>
+        </View> */}
       {/* <View>
           <Header searchBar rounded>
               <Item style={{ padding: 5 }}>
@@ -228,7 +228,8 @@ const styles = StyleSheet.create({
     spinner: {
         height: height / 2,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        zIndex:10
     },
     container: {
         height: height,

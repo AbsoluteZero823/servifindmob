@@ -107,6 +107,20 @@ const ClientInquiries = (props) => {
     //         .catch((error) => console.log(error));
     // }
 
+     const acceptInquiry = (id) => {
+        axios
+            .put(`${baseURL}inquiries/${id}`, 
+            
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((res) => {
+                const products = productFilter.filter((item) => item.id !== id)
+                setProductFilter(products)
+            })
+            .catch((error) => console.log(error));
+    }
+
   return (
     <View style={styles.container}>
         {/* <View style={styles.buttonContainer}>
@@ -163,7 +177,7 @@ const ClientInquiries = (props) => {
                     navigation={props.navigation}
                     index={index}
                     key={index}
-                    // delete={deleteProduct}
+                    accept={acceptInquiry}
                 />
             )}
            

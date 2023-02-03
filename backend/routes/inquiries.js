@@ -143,6 +143,26 @@ router.get(`/get/count`, async (req, res) => {
     // res.send(serviceCount);
 })
 
+
+exports.acceptInquiry = async (req, res, next) => {
+    let inquiry = await Inquiry.findById(req.params.id);
+    const Data = {
+        status: "activated"
+    }
+    if (!inquiry) {
+        return next(new ErrorHandler('Injury disease not found', 404));
+    }
+    inquiry = await Inquiry.findByIdAndUpdate(req.params.id, Data, {
+        new: true,
+        runValidators: true,
+        // useFindandModify:false
+    })
+    res.status(200).json({
+        success: true,
+        inquiry
+    })
+}
+
 //End Count
 
 module.exports = router;

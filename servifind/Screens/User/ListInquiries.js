@@ -45,7 +45,7 @@ const [modalVisible, setModalVisible] = useState(false)
                         >
                             <Icon name="close" size={20} />
                         </TouchableOpacity>
-                        <EasyButton 
+                        {/* <EasyButton 
                         medium 
                         secondary
                         onPress={() => [
@@ -54,7 +54,7 @@ const [modalVisible, setModalVisible] = useState(false)
                         ]}
                         >
                             <Text style={styles.textStyle}>Edit</Text>
-                        </EasyButton>
+                        </EasyButton> */}
                         <EasyButton 
                         medium 
                         danger
